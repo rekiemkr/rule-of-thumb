@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Card from '../components/card/card';
+import Dropdown from '../components/dropdown/dropdown';
 import sizes from '../constants/sizes';
 import './cards.css'
 function Cards({ info, modifyStorage }) {
@@ -8,8 +9,9 @@ function Cards({ info, modifyStorage }) {
     useEffect(() => {
         if (window.innerWidth < sizes.MAX_MOBILE) setView('card');
     }, [])
-    const changeViewType = (viewChange) => {
-        setView(viewChange);
+    const selectOption = (viewChange) => {
+        if (viewChange === 1) setView('list')
+        if (viewChange === 2) setView('card')
     }
     return (
         <div className='cards'>
@@ -17,10 +19,13 @@ function Cards({ info, modifyStorage }) {
                 <h1 className='cards-header__title'>
                     Previous Rulings
                 </h1>
-                <section className='cards-header__menu'>
-                    <button onClick={() => changeViewType('list')}>List</button>
-                    <button onClick={() => changeViewType('card')}>Cards</button>
-                </section>
+                {
+                    window.innerWidth > 768 &&
+                    <section className='cards-header__menu'>
+                        <Dropdown selectOption={(option) => selectOption(option)} />
+                        {/* <buttos onClick={() => changeViewType('list')}>List</buttos */}
+                    </section>
+                }
             </section>
             <section style={{ flexDirection: view === 'list' ? 'column' : 'row' }} className='cards__content'>
                 {
