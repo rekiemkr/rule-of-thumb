@@ -1,0 +1,33 @@
+.action {
+    margin: 0;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 35px;
+    min-height: 35px;
+    max-height: 35px;
+    max-width: 35px;
+    border: 0;
+
+}
+
+.action__icon {
+    width: 15px;
+    height: 15px;
+}
+
+.action-up {
+    background-color: rgba(var(--color-green-positive));
+}
+
+.action-down {
+    background-color: rgba(var(--color-yellow-negative));
+}
+
+.action-select {
+    border: 1px var(--color-white) solid;
+}
+
+.action-click {
+    cursor: pointer;
+}

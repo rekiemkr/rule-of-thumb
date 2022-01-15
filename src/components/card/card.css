@@ -1,0 +1,241 @@
+.card {
+    display: inline-flex;
+    position: relative;
+    min-width: 350px;
+    max-width: 350px;
+    min-height: 350px;
+    max-height: 350px;
+    flex-direction: column;
+    margin: .5rem;
+}
+
+.card__header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    min-height: 130px;
+    max-height: 130px;
+}
+
+.card__header--hidden {
+
+    opacity: 0;
+}
+
+.card__header--show {
+    opacity: 1;
+}
+
+.card__header--title {
+    padding-left: 10px;
+    font-size: 1.5rem;
+    margin: 0 0 .5rem;
+    color: var(--color-white);
+}
+
+.card-main {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin: 0 auto;
+    min-height: 182px;
+    max-height: 182px;
+}
+
+.card__info {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    color: var(--color-white);
+}
+
+.card__action {
+    margin: 1rem 0;
+    display: inline-flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+.card__action--confirmation {
+    color: var(--color-white);
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.card__action--confirmation small {
+    margin: .5rem;
+}
+
+.card__action--vote {
+    max-width: 100px;
+    height: 40px;
+    background-color: var(--color-darker-background);
+    border: 1px var(--color-white) solid;
+    color: var(--color-white);
+    padding: 0 .5rem;
+    cursor: pointer;
+}
+
+.card__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+
+}
+
+.card-list .card__info--description {
+    font-size: 1rem;
+    margin: .5rem 0;
+}
+
+.card__info--time {
+    font-size: .7rem;
+    align-self: flex-end;
+}
+
+.card-body {
+    position: relative;
+    z-index: 1;
+    background-image:
+        linear-gradient(to bottom, rgba(0, 0, 0, .05), rgba(0, 0, 0, .6));
+    bottom: calc(100% - 38px)
+}
+
+.card__bar {
+    display: relative;
+    height: 38px;
+    background-color: rgba(var(--color-yellow-negative), .7);
+}
+
+.card__bard--positive {
+    position: absolute;
+    height: 38px;
+    background-color: rgba(var(--color-green-positive), .8);
+    width: 50%;
+    transition: width .5s ease-in-out;
+}
+
+.card__info--description {
+    font-size: 1.3rem;
+}
+
+.card-list {
+    margin-top: 1rem;
+    width: 100%;
+    min-height: 170px;
+    position: relative;
+}
+
+.card-list .card__header {
+    margin-top: 0;
+    min-height: 40px;
+}
+
+.card-list .card__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    width: 140px;
+    height: 138px;
+}
+
+.card-list .card__info--time {
+    align-self: flex-start;
+}
+
+.card-list .card__header--title {
+    margin-left: 11%;
+    margin-top: 20px;
+}
+
+.card-list .card-body {
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.0001) 0%, #888888 19.79%, #666666 50%, rgba(51, 51, 51, 0.6) 71.88%);
+}
+
+.card-list .card-main {
+    flex-direction: row;
+    margin: 0 3% 0 15%;
+    width: auto;
+    justify-content: space-between;
+    min-height: 80px;
+    max-height: 80px;
+}
+
+.card-list .card__action {
+    min-width: 200px;
+    position: relative;
+    bottom: 30px;
+}
+
+.card-list .card__action--confirmation {
+    min-width: 200px;
+    position: relative;
+    bottom: 30px;
+}
+
+.card-list .card__info .card__info--description {
+    font-size: 1rem;
+    margin: .5rem 0;
+}
+
+.card__bar--numbers {
+    display: flex;
+    position: relative;
+    height: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card__bar--numbers label {
+    color: var(--color-white);
+    font-size: 1.5rem;
+}
+
+.card__bar--numbers img {
+    padding: 0 .5rem;
+}
+
+@media all and (min-width: 850px) {
+    .card-list .card__header--title {
+        margin-left: 15%;
+        margin-top: 20px;
+    }
+
+    .card-list .card__info {
+        margin-left: 7%;
+        margin-top: 20px;
+    }
+    .card__header--title {
+        margin: 0;
+    }
+    .card__bar--numbers label {
+        color: var(--color-white);
+        font-size: 1.0rem;
+    }
+}
+
+@media all and (min-width: 1000px) {
+    .card-list .card__header--title {
+        margin-left: 11%;
+        margin-top: 20px;
+    }
+
+    .card-list .card__info {
+        margin-left: 0;
+        margin-top: 0;
+    }
+
+    .card__info--description {
+        font-size: .9rem;
+    }
+
+}

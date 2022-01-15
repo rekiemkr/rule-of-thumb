@@ -1,0 +1,24 @@
+.cards__title {
+    font-weight: 300;
+}
+
+.cards-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cards__content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+}
+
+@media all and (min-width: 800px) {
+    .cards {
+        width: 95%;
+        margin: 0 auto;
+    }
+}
