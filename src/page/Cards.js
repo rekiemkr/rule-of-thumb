@@ -20,7 +20,6 @@ function Cards({ info, modifyStorage }) {
                     Previous Rulings
                 </h1>
                 {
-                    window.innerWidth > 768 &&
                     <section className='cards-header__menu'>
                         <Dropdown selectOption={(option) => selectOption(option)} />
                         {/* <buttos onClick={() => changeViewType('list')}>List</buttos */}

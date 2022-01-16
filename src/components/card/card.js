@@ -5,7 +5,8 @@ import './card.css';
 import ThumbUp from '../../assets/img/thumbs-up.svg'
 import ThumbDown from '../../assets/img/thumbs-down.svg'
 
-const NUMBER_CARACTERS = 50;
+const MAX_NUMBER_CARACTERS_DESC = 80;
+const MAX_NUMBER_CARACTERS_TITLE = 25;
 
 export default function Card({ personaje, view, modifyStorage }) {
     const [percentages, setPercentages] = useState(0)
@@ -31,12 +32,12 @@ export default function Card({ personaje, view, modifyStorage }) {
                     <span className={personaje.votes.positive === personaje.votes.negative ? 'card__header--hidden' : 'card__header--show'}>
                         <Action type={personaje.votes.positive > personaje.votes.negative ? 'up' : 'down'} />
                     </span>
-                    <h1 className='card__header--title'>{personaje.name.length > 15 ? `${personaje.name.substring(0, 15)}` : personaje.name}</h1>
+                    <h1 className='card__header--title'>{personaje.name.length > MAX_NUMBER_CARACTERS_TITLE && view === 'card' ? `${personaje.name.substring(0, 15)}...` : personaje.name}</h1>
                 </section>
                 <section className='card-main'>
                     <section className='card__info'>
-                        <p className='card__info--description'>{personaje.description.length > NUMBER_CARACTERS ? `${personaje.description.substring(0, NUMBER_CARACTERS)}...` : personaje.description}</p>
-                        <small className='card__info--time'>1 month ago in {personaje.category}</small>
+                        <p className='card__info--description'>{(personaje.description.length > MAX_NUMBER_CARACTERS_DESC) ? `${personaje.description.substring(0, MAX_NUMBER_CARACTERS_DESC)}...` : personaje.description}</p>
+                        <small className='card__info--time'> { !voteComplete ? `1 month ago in ${personaje.category}` : `Thank you for your vote!` } </small>
                     </section>
                     {
                         !voteComplete &&
@@ -53,9 +54,6 @@ export default function Card({ personaje, view, modifyStorage }) {
                     {
                         voteComplete &&
                         <section className='card__action--confirmation'>
-                            <small >
-                                Thank you for voting!
-                            </small>
                             <button className='card__action--vote' onClick={() => confirmVote(true)}>
                                 Vote Again
                             </button>
@@ -66,12 +64,12 @@ export default function Card({ personaje, view, modifyStorage }) {
                     <section className='card__bard--positive' style={{ width: `${percentages.positive}%` }}></section>
                     <section className='card__bar--numbers'>
                         <span>
-                            <img src={ThumbUp} />
+                            <img src={ThumbUp} alt="Vote positive" />
                             <label>{percentages.positive}%</label>
                         </span>
                         <span>
                             <label>{percentages.negative}%</label>
-                            <img src={ThumbDown} />
+                            <img src={ThumbDown} alt="Vote negative" />
                         </span>
                     </section>
                 </section>

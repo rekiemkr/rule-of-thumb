@@ -3,7 +3,7 @@ import "./dropdown.css"
 import Triangle from '../../assets/img/Triangle.svg'
 
 export default function Dropdown({selectOption}) {
-    const [option, setOption] = useState('')
+    const [option, setOption] = useState('Grid')
     const [deploy, setDeploy] = useState(false)
 
     const chooseOption = (option) => {
